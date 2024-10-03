@@ -1,151 +1,737 @@
-MODEL small
-STACK 100h
+; Filename: Exer7.asm
+; create your own multicolored character with blinking parts
+; RAFAEL A. MENDOZA
+; Date: August 30, 2024
 
-CODESEG
+.model small
+.stack 100h
 
-Space:
-	MOV dl, ' '
-	INT 21h
-	RET
-NextL:
-	MOV dl, 0Ah
-	INT 21h
-	RET
-WhiteBack:
-    MOV ah, 09h
-	MOV bl, 80h
-	MOV cx, 14
-	INT 10h
-	MOV ah, 02h
-	RET
-YellowBack:
-	MOV ah, 09h
-	MOV bl, 70h
-	MOV cx, 1
-	INT 10h
-	MOV ah, 02h
-	RET
-BlackBack:
-	MOV ah, 09h
-	MOV bl, 00h
-	MOV cx, 1
-	INT 10h
-	MOV ah, 02h
-	RET	
-OrangeBack:
-	MOV ah, 09h
-	MOV bl, 60h
-	MOV cx, 1
-	INT 10h
-	MOV ah, 02h
-	RET	
+.code
 
-Blink:
-	MOV ah, 09h
-	MOV bl, 89h
-	MOV cx, 1
-	INT 10h
+start:
+
+	; line 1
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
 	
-	MOV ah, 2
-	MOV dl, 4h
-	INT 21h
-	RET
-
-Start:
-    ; Row 1
-	CALL WhiteBack          
-	CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-    CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-    CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-		CALL NextL
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
 	
-	; Row 2
-	CALL WhiteBack
-	CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-    CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-	CALL Space
-    CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-		CALL NextL
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 4
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	; line 2
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 6
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 3
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 22h ; beak green
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 87h ; blink
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 30h ; eye 9
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 4
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 22h ; beak green
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 5
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 5
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 22h ; beak green
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 6
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
 
-; Row 3
-	CALL WhiteBack
-	CALL Space
-	CALL Space
-	CALL Space
-	CALL YellowBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-    CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-	CALL YellowBack
-	CALL Space
-    CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-		CALL NextL
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
 
-; Row 4
-	CALL WhiteBack
-	CALL Space
-	CALL Space
-	CALL Space
-	CALL OrangeBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-	CALL Blink
-    CALL YellowBack
-    CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-    CALL YellowBack
-	CALL Space
-	CALL Space
-    CALL Space
-	CALL Space
-	CALL Space
-	CALL Space
-		CALL NextL
+	; line 7
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 8
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 55h ; line purple
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 8
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 4
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 55h ; line purple
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 55h ; line purple
+	mov cx, 1
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 2
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
 
-        
-	CALL Exit
-Exit:
-	MOV ah, 4CH
-	INT 27h
-	END Start
+	; line 9
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 5
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 55h ; line purple
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 3
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 10
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 11
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 11
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 9
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 12
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 09h
+	mov bl, 11h ; color blue
+	mov cx, 7
+	int 10h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	mov ah, 02h
+	mov dl, 20h
+	int 21h
+	
+	; line 13
+	mov ah, 02h
+	mov dl, 0ah  ;newline
+	int 21h
+	
+int 27h
+end start
